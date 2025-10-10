@@ -1,0 +1,751 @@
+
+
+    * { margin:0;   padding: 0;  box-sizing: border-box; font-family: Tahoma, Geneva, Verdana, sans-serif; }		
+
+body{
+    margin: 0 auto;
+	padding:0;
+	max-width: 1440px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+	background: #f4f4f4;
+	background-color: white;}
+
+
+ /*-- 1 Parent-div Main or Head section starts --*/
+ /*-- 1. Main section background --*/
+    .parent-div {
+      margin: 0;
+    }
+
+    .main-head {
+      background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.4) 50%,
+          rgba(0, 0, 0, 0.4) 50%
+        ),
+        url("bg.png") no-repeat center center;
+      background-size: cover;
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /*-- Navbar --*/
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      padding: 15px 0;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .logo img {
+      width: 80px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .menu ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .menu ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      transition: 0.3s ease;
+    }
+
+    .menu ul li a:hover {
+      color: #f15a29;
+    }
+
+    /*-- Center content container --*/
+    .content-center {
+      text-align: center;
+      width: 100%;
+      max-width: 800px;
+      margin-top: 80px;
+    }
+
+    /*-- Voice Search Bar --*/
+    .voice-search {
+      margin-top: 40px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 30px;
+      padding: 5px 10px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      background: transparent;
+    }
+
+    .search-bar button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-bar button i {
+      font-size: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-camera i { color: #069b49; }
+    .btn-mic i { color: #3436a8; }
+    .btn-search i { color: #EA4335; }
+
+    .search-bar button:hover i {
+      transform: scale(1.2);
+    }
+
+    /*-- Search Buttons Section --*/
+    .search-tab {
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      padding: 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .status-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .status-buttons button {
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 15px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 1px solid #fff;
+    }
+
+    .status-buttons button:hover {
+      background-color: tomato;
+      transform: scale(1.05);
+      transition: 0.3s ease;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .filters select,
+    .filters input {
+      padding: 10px 15px;
+      border-radius: 10px;
+      outline: none;
+      font-size: 15px;
+      border: none;
+    }
+
+    .filters .search-btn {
+      background-color: #f15a29;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 10px;
+      transition: 0.3s ease;
+    }
+
+    .filters .search-btn:hover {
+      background: #c94a21;
+    }
+
+    /*-- Responsive --*/
+    @media (max-width: 991px) {
+      .menu ul {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+      }
+
+      .search-bar {
+        max-width: 90%;
+      }
+
+      .search-bar input {
+        font-size: 14px;
+      }
+
+      .search-tab {
+        width: 90%;
+      }
+
+      .filters {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .main-head {
+        height: 90vh;
+        border-radius: 0;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .menu ul li a {
+        font-size: 16px;
+      }
+
+      .search-tab {
+        width: 95%;
+      }
+    }
+ /*-- 1 Parent-div Main or Head section ends --*/		
+
+
+
+/*------2 Marquee  sliding starts-----*/
+:root {
+    --gap: 5px;
+    --speed: 18s; /* adjust speed */
+    --radius: 10px;
+    --item-h: 180px; }
+	
+.marquee-wrap h1{ margin-top:80px; margin-bottom:0px; background:yellow; color: #000; font-size: 1.5rem; width:280px; padding:10px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);} 
+.marquee-wrap {overflow: hidden; position: relative; width:100%;  } 
+.marquee { display: flex; gap: var(--gap); margin:0px; padding: 0; width: max-content;
+ /* ensures smooth flow */ 
+ animation: scroll-left var(--speed) linear infinite; will-change: transform; } 
+.group { display: flex; gap: var(--gap); list-style: none; margin: 0; padding: 0; } 
+.group li { flex: 0 0 auto; position: relative; } 
+.group img { width: 260px; height: var(--item-h); object-fit: cover; border-radius: var(--radius); box-shadow: 0 6px 14px rgba(0,0,0,.35); transition: transform .3s ease; display: block; } 
+.group img:hover { transform: scale(1.06); }
+.tag { position: absolute; top: 8px; right: 8px; background: yellow; color: #000; font-size: 12px; font-weight: bold; padding: 4px 8px; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
+
+
+  /* smooth continuous scroll */
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } }
+
+  @keyframes scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); } }
+
+  @media (max-width: 520px) {
+    :root { --item-h: 100px; }
+    .group img { width: 160px; }
+    body { max-width: 100%; } }
+
+  /* Arrows */
+.arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; 
+          font-size: 24px; cursor: pointer; padding: 10px; border-radius: 50%; z-index: 10; transition: background 0.3s;  } 
+.arrow:hover { background: rgba(0,0,0,0.8);  } 
+.arrow-left { left: 10px; } 
+.arrow-right { right: 10px; }
+/* ---Marquee  sliding ends-----*/ 
+
+
+
+		
+/*------ 3 Choose Your City Section start-----*/  
+.city-div h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 50px 0 20px;
+  color: #333;
+}
+
+/* Carousel container */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 0 15px;
+}
+
+/* Track that moves */
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Individual card */
+.card {
+  min-width:25%; /* 4 cards per slide (desktop) */
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  margin:2px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+  width:100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card-content {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  color: white;
+  z-index: 2;
+}
+
+.properties { font-size: 14px; opacity: 0.9; } 
+.city { font-size: 18px; font-weight: bold; margin-top: 5px; } 
+
+.more-details {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  z-index: 3;
+} 
+
+.more-details:hover { background: rgba(0, 0, 0, 0.7); } 
+.more-details::after { content: ' ▶'; font-size: 12px; } 
+
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));
+  z-index: 1;
+}  
+
+/* ✅ Responsive */
+@media (max-width: 991px) {
+  .card { min-width: 25%; } /* Tablet shows 4 as desktop */
+}
+@media (max-width: 768px) {
+  .card {min-width: 45%;} /* Mobile: 2 per slide */
+  .card img { height: 300px; }
+  .city { font-size: 16px; }
+  .more-details { font-size: 12px; padding: 5px 10px; }
+}
+
+/*------ 3 Choose Your City Section end-----*/  
+
+
+
+
+/*------4. Latest Property For Sell and Rent starts-----*/
+/* Page container (centered up to 1440px) */  
+  .gallery {  margin:20px 5px; } 
+  .gallery h1 {padding: 20px; font-size: 1.4rem; /* smaller heading */ color: #0d6efd; text-align: center;} 
+  .gallery p {font-size:9px; color: gray; text-align: center; margin: 0 0 18px; font-weight:500; } /* Grid: 4 columns desktop/tablet, 2 columns on mobile */ 
+  .property-grid { display: grid; grid-template-columns: repeat(4, 1fr); /* 4 cards */ gap: 15px; } 
+  .property-card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.08); transition: transform .25s ease, box-shadow .25s ease; position: relative; } 
+   
+   .property-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); } 
+   .property-image { position: relative; } 
+   .property-image img { width: 100%; height: 200px; object-fit: cover; display: block; border: none; } 
+   .property-badge { position: absolute; top: 12px; right: 12px; background: #ffc107; color: #333; padding: 6px 10px; border-radius: 18px; font-weight: 700; font-size: .8rem; z-index: 2; } 
+   .property-info { padding: 14px; position: relative; } 
+   .property-title { font-size:10px; /* smaller */ margin: 6px 0; color: #212529; font-weight:600; }
+
+.property-price { font-size: 8px; /* smaller price */ font-weight:500; color: #0d6efd; margin-bottom: 8px; } 
+.property-address { display: flex; align-items: center; color: #6c757d; font-size: 0.85rem; margin-bottom: 10px; } 
+.property-address i { margin-right: 8px; color: #0d6efd; } 
+.property-details { display: flex; justify-content: space-around; border-top: 1px solid #e9ecef; border-bottom: 1px solid #e9ecef; padding: 10px 0; margin-bottom: 12px; } 
+.detail { display: flex; flex-direction: column; align-items: center; } 
+.detail i { font-size: 1rem; color: #0d6efd; margin-bottom: 4px; } 
+.detail span { font-size: 0.8rem; color: #6c757d; } 
+.view-btn { display: inline-block; width: calc(100% - 24px); margin: 0 12px 12px; text-align: center; background: #f8f9fa; color: #0d6efd; padding: 9px; border-radius: 8px; font-weight: 700; text-decoration: none; border: 1.5px solid #e9ecef; font-size: 0.85rem; transition: background .2s, color .2s; }	
+	
+	
+    
+    .view-btn:hover { background: #0d6efd;color: #fff;  border-color: #0d6efd;    }
+
+    /* Breakpoints */
+    @media (max-width: 1024px) {
+      /* keep 4 columns on many tablets (as requested) */
+      .gallery { padding: 16px; }
+      .property-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      /* mobile: 2 columns */
+      .property-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery { padding: 12px; }
+    }
+
+    @media (max-width: 480px) {
+      /* very small phones: 1 column */
+      .property-grid { grid-template-columns: 1fr; }
+      .property-image img { height: 220px; }
+    }
+/*------4. Latest Property For Sell and Rent ends-----*/
+
+
+
+
+
+/* 5 New Explore more zone starts       Confuse  */	
+.more-zone {margin:0;} 
+/* home Page styles ccccccccccccccccc         oooooooooooooooo           nnnnnnnnnnnnnnnnn*/  
+.page { display: none; padding: 30px 0; animation: fadeIn 0.5s ease; } 
+.page.active { display: block; } @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+ /* Explore more zone starts */ 
+ .explore-con { padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05); } 
+ .explore-con h1 { text-align: center; margin-bottom: 20px;  color: #0d6efd; text-align: center;  font-size: 1.5rem; }
+ .more-zone h2{font-size:1.25rem; }
+    
+	/* Navigation Tabs */
+    .nav-tabs { display: flex; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; } 
+	.tab-btn {padding:12px 25px; margin:0 10px; background:none; border:none; font-size:1.1rem; font-weight:600; color:#7f8c8d; cursor:pointer; transition:all 0.3s ease; position:relative; border-radius: 5px; } 
+	.tab-btn:hover { color: #2c3e50; transform: translateY(-3px); } 
+	.tab-btn.active { color: #e74c3c; } 
+	.tab-btn.active::after { content: ''; position: absolute; bottom: -3px; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background-color: #e74c3c; border-radius: 3px; }
+
+    /* City Buttons */
+    .city-buttons { display: flex; justify-content: center; flex-wrap: wrap;} 
+	.city-btn {background-color: #fff; border:1px solid yellow; border-radius:30px; font-size: 20px; color: #34495e; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); } 
+	.city-btn:hover { background-color: #e74c3c; color: white; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-color: #e74c3c; } 
+	.city-btn.active { background-color: #e74c3c; color: white; border-color: #e74c3c; }
+    
+	/* Divider */
+    .divider { height: 1px; background-color: #ddd; margin: 10px 0;    }
+
+    /* Apartments Section */
+    h1 {margin-top:20px;   color: #2c3e50;  font-size: 1.5rem;}
+
+    .apartments-grid {display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));   gap: 20px; }
+    .apartment-card { background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; } 
+	.apartment-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); } 
+	.property-image { width: 100%; height: 200px; overflow: hidden; } 
+	.property-image img { width: 100%; height: 100%; object-fit: cover; } 
+	.apartment-info { padding: 20px; } 
+	.apartment-title { font-size: 10px; margin-bottom: 10px; color: #2c3e50; font-weight:600; } 
+	.apartment-location { color: #7f8c8d; font-size:7px; margin-bottom: 15px; } 
+	.apartment-price { color: #e74c3c; font-weight:500; font-size: 8px; }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-tabs {flex-direction: column;  align-items: center; }
+      .tab-btn {margin: 5px 0;  width: 200px;   text-align: center;}
+      .city-buttons {justify-content: flex-start;}}
+
+    /* Initially hidden content */
+  .city-content { display: none; }
+  .city-content.active { display: block; } 
+  /* Back button */ 
+  .back-btn { display: inline-block; margin-bottom: 20px; padding: 10px 20px; background-color: #e74c3c; color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s ease; } 
+  .back-btn:hover { background-color: #c0392b; } 
+  /* Page specific styles */
+  .page-header { text-align: center; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 1px solid #eee; } 
+  .page-title { font-size: 2rem; color: #2c3e50; margin-bottom: 10px; } 
+  .page-description { color: #7f8c8d; max-width: 600px; margin: 0 auto; } 
+  /* News page styles */ 
+  .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; } 
+  .news-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; } 
+  .news-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); } 
+  .news-image { width: 100%; height: 180px; overflow: hidden; } 
+  .news-image img { width: 100%; height: 100%; object-fit: cover; } 
+  .news-content { padding: 20px; } 
+  .news-title { font-size: 1.2rem; margin-bottom: 10px; color: #2c3e50; } 
+  .news-date { color: #7f8c8d; font-size: 0.85rem; margin-bottom: 10px; } 
+  .news-excerpt { color: #5d6d7e; line-height: 1.5; }
+   
+   
+    /* Rent page styles */
+.filters { background: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05); } 
+.filter-group { margin-bottom: 15px; } 
+.filter-group label { display: block; margin-bottom: 5px; font-weight: 600; color: #2c3e50; } 
+.filter-group select, .filter-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; } 
+.filter-actions { display: flex; justify-content: flex-end; gap: 10px; } 
+.filter-btn { padding: 10px 20px; background-color: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s ease; } 
+.filter-btn:hover { background-color: #c0392b; } 
+.reset-btn { padding: 10px 20px; background-color: #ecf0f1; color: #34495e; border: none; border-radius: 5px; cursor: pointer; transition: all 0.3s ease; } 
+.reset-btn:hover { background-color: #d5dbdb;}	
+/* 5  Explore more zone ends*/	
+	
+
+
+
+			
+			
+			
+/*--------6 Your  Popular real estate zone search starts */	
+.popular{text-shadow: 0 2px 4px rgba(0,0,0,0.3); } 
+.popular-real {border-radius:12px; border:; box-shadow:0 5px 15px rgba(0, 0, 0, 0.08); overflow: hidden;} 
+.popular h1 { text-align: center; margin: 20px; color:blue; } 
+.tabs { text-align: center; justify-content:space-between; margin-bottom: 15px; margin: 20px; } 
+.tabs button { background: snow; border: none; font-size: 18px; margin: 0 10px; padding: 8px 15px; cursor: pointer; border-bottom: 2px solid transparent; transition: 0.3s; } 
+.tabs button.active { border-bottom: 2px solid green; color: green; } 
+.city-buttons { text-align: center; margin-bottom: 20px; } 
+.city-buttons button { background: white; border: 1px solid #ccc; border-radius: 5px; padding: 6px 15px; margin: 0 5px; cursor: pointer; transition: 0.3s; } 
+.city-buttons button.active { border-color: green; color: green; background: #f4fff4; } 
+.section { max-width: 1000px; margin: auto; } 
+.row { display: flex; flex-wrap: wrap; border-top: 1px solid #ddd; padding-top: 15px; } 
+.column { flex: 1; min-width: 250px; padding: 10px; text-align:left; } 
+.column h4 { margin-bottom:10px; margin-left:0px; font-size: 14px; text-transform: uppercase; color: #666; text-align:center; } 
+.column a { display: block; margin:5px 0; color: #0077cc; text-decoration: none; transition: 0.3s; } 
+.column a:hover { text-decoration: underline; color: green;    } /*extra-------*/ 
+.view-more { text-align: right; margin-top: 5px; } 
+.view-more a { color: #0077cc; cursor: pointer; } 
+
+@media(max-width: 768px) { 
+.row { flex-direction: column; } }
+/*--------6 Your  Popular real estate zone search starts */	
+
+			
+
+	
+
+
+/* 7 Featured real estate agency  starts*/
+.container-company {margin:5px; } 
+.header { text-align: center; margin-top:40px; } 
+.header h1 { font-size: 1.5rem; color: #3498db; margin-bottom: 10px; } 
+.header p { font-size: 8px; color: #333;    } 
+.carousel-container { position: relative; overflow: hidden; padding: 20px 0;    } 
+.carousel { display: flex; transition: transform 0.6s ease-in-out;     } 
+.carousel-slide { padding: 5px 5px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center;}
+    /* Four slides on desktop and tablets */
+    @media (min-width: 768px) {
+        .carousel-slide { min-width: 25%; }    }
+
+    /* For mobile, show 1 slide at a time */
+    @media (max-width: 767px) {
+        .carousel-slide { min-width: 90%; }    }
+
+    .agency-card { margin:20px; width:100%; text-align: center; border-radius: 10px; overflow: hidden; background: none; border: 1px solid #eaeaea; display: flex; flex-direction: column; align-items: center; padding-bottom:20px; } 
+	.agency-image { width: 100%; height: 180px; background-size:cover; background-position: center; position: relative; } 
+	.agency-logo {width:50px; height:50px; border-radius: 50%; background: #fff; display: flex; justify-content: center; align-items: center; margin:30px auto 10px; border: 2px solid #3498db; } .agency-logo i { color: #3498db; font-size: 1.5rem; } 
+	.agency-content h2 { font-size: 1rem; margin: 5px 0; color: #333; } 
+	.property-count { font-size: 0.9rem; color: #e74c3c; } 
+	.agency-tag { font-size: 0.9rem; color: #3498db; font-weight: bold; margin-top: 5px; }
+	
+	.carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; border: 1px solid #3498db; background: none; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; cursor: pointer; color: #3498db; z-index: 10; } 
+	.arrow-left { left: 10px; } 
+	.arrow-right { right: 10px; } 
+	.carousel-nav { display: flex; justify-content: center; margin-top: 15px; gap: 8px; } 
+	.nav-dot { width: 10px; height: 10px; border-radius: 50%; background: #bdc3c7; cursor: pointer; transition: all 0.3s ease; } 
+	.nav-dot.active { background: #3498db; transform: scale(1.2); }
+
+   
+/* 7 Featured real estate company agencies ends*/
+
+
+
+
+
+		
+/*8 Premium Real Estate Agents start*/
+
+.prem-agent { margin-top:50px;} 
+.headline { text-align: center; margin-bottom: 30px;    } 
+.headline h1 { font-size: 1.5rem; color: darkblue; margin-bottom: 10px;    } 
+.headline p { font-size:8px; opacity: 0.9; }
+/* Carousel container */ 
+.carousel-container { position: relative; overflow: hidden; } 
+.agents-carousel { display: flex; transition: transform 0.8s ease-in-out; gap: 10px;} 
+.agents-slide { display: flex; gap: 20px; }
+.agent-card {flex: 0 0 auto; padding:10px; width:350px; text-align: center; text-align: center; border-radius: 10px; transition: all 0.4s ease; box-shadow: 0 10px 25px rgba(0,0,0,0.1); cursor: pointer; } 
+.agent-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.2); } 
+.agent-photo { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.2); } 
+.agent-photo img { width: 100%; height: 100%; object-fit: cover; } 
+.agent-name { font-size: 1.1rem; margin-bottom: 5px; font-weight: 700; } 
+.agent-title { font-size: 1rem; color: #ffd700; margin-bottom: 15px; font-weight: 600; } 
+.agent-details { text-align: left; margin-bottom: 20px; } 
+.agent-details p { margin: 5px 0; font-size: 1rem; display: flex; align-items: center; } 
+.agent-details i { width: 25px; color: #ffd700; margin-right: 8px; } 
+.view-profile { display: inline-block; color: #da1b60; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; } 
+.view-profile:hover { transform: translateY(-3px); color: #ff8a00; }
+    
+    /* Navigation arrows */
+   .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; font-size: 1.5rem; color: #333; transition: all 0.3s ease; z-index: 10; background: none; border: 1px solid rgba(0,0,0,0.1); } 
+   .nav-btn:hover { color: #ffd700; transform: translateY(-50%) scale(1.1); } 
+   .prev { left: 10px; } 
+   .next { right: 10px; }
+   
+    /* Pagination */
+    .pagination { display: flex; justify-content: center; margin-top: 20px; gap: 10px; } 
+	.pagination-dot { width: 12px; height: 12px; background: rgba(0,0,0,0.2); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; } 
+	.pagination-dot.active { background: #ffd700; transform: scale(1.3); }
+
+    /* Responsive */
+    @media (max-width: 1024px) { .agent-card { width: 220px; } }
+    @media (max-width: 768px) { .agent-card { width: 45%; } }
+    @media (max-width: 480px) { .agent-card { width: 90%; } }
+
+    /* 8 Premium Real Estate Agents ends*/ 
+	 
+	 
+	
+
+	 /* ------9 testmonial Customer starts -------- */ 
+    .support {margin: 0 auto; text-align: center;} 
+	h1 { font-size: 1.5rem; margin: 10px 0; font-weight: bold;} 
+	h4 {letter-spacing: 1px; color: #ff4d00; text-transform: uppercase; font-size:12px;font-weight: bold; } 
+	p.subtitle { width: 700px; margin: auto; color: black; font-size: 16px;    } /* Slider Container */ 
+	.slider-container { position: relative; margin:20px auto 0; border:#; overflow: hidden; } 
+	.slider { display: flex; transition: transform 0.6s ease-in-out; } 
+	.slide { flex: 0 0 33.333%; box-sizing: border-box; padding: 15px;    }
+		
+    /* Card Styling */
+    .card { background: snow; border-radius: 10px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: left; display: flex; flex-direction: column; height: 100%; justify-content: space-between; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; } 
+	.card p{ color:black; } 
+	.card::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(to right, #ff4d00, #ff9900); border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; } 
+	.card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+	
+	
+    /* Customer Info */
+    .customer { display: flex; align-items: center; margin-top: 15px; } 
+	.customer img { border-radius: 50%; width: 50px; height: 50px; margin-right: 10px; } 
+	.customer h5 { margin: 0; font-size: 16px; font-weight: bold; } 
+	.customer span { display: block; font-size: 14px; color: #888; } /* Arrows */ 
+	.arrow { position: absolute; top: 50%; transform: translateY(-50%); font-size: 30px; background: rgba(255,255,255,0.9); border: none; cursor: pointer; padding: 5px 10px; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: background 0.3s; z-index: 10; } 
+	.arrow:hover { background: linear-gradient(to right, #ff4d00, #ff9900); color: white; } 
+	.arrow.left { left: 10px; } 
+	.arrow.right { right: 10px; }
+    /* Responsive */
+    @media(max-width: 900px) {
+        .slide { flex: 0 0 50%; } }
+    @media(max-width: 600px) {
+        .slide { flex: 0 0 100%; }  }
+/* ------ 9 testmonial Customer ends --------- */ 
+
+
+/* 10 Millions of Offering Supplers for your Business starts */	
+h2 {font-size: 15px;  text-align: center;    margin: 40px 20px 20px;    font-weight: 700;    color: #222;}
+
+/* Counter Grid */
+.counter-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; text-align: center; align-items: center; justify-content: center; margin: 20px auto 50px; padding: 0 10px; } 
+/* Counter Box */ 
+.counter-box { position: relative; padding: 30px 20px; border-radius: 15px; background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.counter-box:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); } 
+/* Counter Number */ 
+.counter { font-size: 2.5rem; font-weight: bold; color: #00cc99; } 
+/* Label */ 
+.label { margin-top: 10px; font-size: 1rem; color: #1a1a80; }
+
+/* Responsive adjustments */
+@media(max-width: 900px) {
+    .counter-container { gap: 15px; }
+    .counter-box { padding: 25px 15px; }
+}
+@media(max-width: 600px) {
+    .counter { font-size: 2rem; }
+    .label { font-size: 0.9rem; } }
+ /*10 Millions of Offering Supplers for your Business starts ends */
+   
+   
+  
+
+  /* -------- Footer Section Starts -------- */	
+.footer-container { margin: 0 auto; background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%); color: white; box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1); padding: 40px 20px;} 
+.footer-content { display: grid;   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  gap:5px;} 
+.footer-section { position: relative; padding: 20px; transition: all 0.3s ease; animation: fadeIn 0.8s ease forwards; } 
+.footer-section:hover { transform: translateY(-5px); } 
+.section-title { font-size: 1.25rem; margin-bottom: 25px; border-radius: 10px; background-color: lightgray; position: relative; display: inline-block; color: red; padding: 5px 10px; } 
+.section-title::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 50px; height: 3px; background: linear-gradient(to right, #e74c3c, #3498db); border-radius: 3px; }
+
+
+/* -------- City Slider -------- */
+.city-slider { position: relative; overflow: hidden; height: 250px; } 
+.city-slides { display: flex; transition: transform 0.5s ease-in-out; height: 100%; } 
+.city-slide { min-width: 100%; padding: 15px 0; } 
+.city-link { display: block; color: #ecf0f1; margin-bottom: 15px; text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; padding: 8px 0; position: relative; } 
+.city-link::before { margin-right: 10px; color: #e74c3c; font-weight: bold; } 
+.city-link:hover { color: #e74c3c; transform: translateX(10px); } /* -------- Policy & Contact Links -------- */ 
+.policy-links a { display: block; color: #ecf0f1; margin-bottom: 15px; text-decoration: none; transition: all 0.3s ease; font-size: 1.1rem; } 
+.policy-links a:hover { color: #e74c3c; transform: translateX(5px); }
+
+/* ===== footer-bottom start ===== */
+.footer-bottom{ color: #fff; padding: 1rem; font-family: Arial, sans-serif; } 
+.footer-container2 { margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap:5px; } 
+/* Newsletter */ 
+.news-letter { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; } 
+.news-letter label { font-weight: bold; white-space: nowrap; } 
+.news-letter input[type="email"] { padding: 0.5rem 0.8rem; border-radius: 5px; border: none; width: 220px; } 
+.news-letter button { background-color: #000; color: #fff; border: none; border-radius: 5px; padding: 0.5rem 1rem; font-weight: bold; cursor: pointer; transition: transform 0.2s; } 
+.news-letter button:hover { background-color: #222; color:yellow; } 
+/* Social icons */ 
+.social-icons { display: flex; gap: 0.7rem; align-items: center; } 
+.social-icons a { font-size: 1.2rem; transition: transform 0.2s; } 
+.social-icons a:hover { transform: scale(1.2); } 
+/* Copyright */ 
+.footer-copyright { color: yellow; font-size: 0.95rem; white-space: nowrap; }
+
+/* Responsive */
+@media (max-width: 800px) {
+  .footer-container2 {
+    flex-direction: column;
+    text-align: center;
+  }
+  .newsletter {
+    justify-content: center;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+}
+/* ===== footer-bottom ends ===== */
+/* -------- Footer Section ends -------- */	
